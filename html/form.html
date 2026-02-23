@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <form method="get" action="">
+      <fieldset>
+        <legend>Personal info</legend>
+        <label for="fname">First name:</label><br />
+        <input type="text" id="fname" name="fname" /><br />
+        <label for="lname">Last name:</label><br />
+        <input type="text" id="lname" name="lname" /><br />
+      </fieldset>
+
+      <label for="email">Email</label><br />
+      <input type="email" name="email" id="email" /><br />
+      <label for="password">Password</label><br />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        autocomplete="on"
+        pattern="^.{1,6}$"
+        required
+      />
+      <br /><input type="datetime-local" name="date" id="date" /> <br /><input
+        type="checkbox"
+        name="checkbox"
+        id="checkbox"
+      />&nbsp;Checkbox <br /><input type="color" name="color" id="color" />
+      <br />
+
+      <input type="radio" name="r1" />&nbsp;Radio1
+      <input type="radio" name="r1" />&nbsp;Radio2
+      <input type="radio" name="r1" />&nbsp;Radio3
+      <input type="file" name="" id="" />
+      <br />
+      <select multiple name="course">
+        <optgroup label="Science">
+          <option>MSc. Computer Science</option>
+          <option>MSc. Mathematics</option>
+          <option>MCA</option>
+        </optgroup>
+        <optgroup label="Arts">
+          <option>MA</option>
+        </optgroup>
+        <optgroup label="Business">
+          <option>MBA</option>
+        </optgroup></select
+      ><br />
+      <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+      <br /><input type="reset" value="Reset" />
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      const params = Object.fromEntries(
+        new URLSearchParams(window.location.search),
+      );
+      if (params.fname) {
+        document.writeln("welcome " + params.fname + " " + params.lname);
+      }
+    </script>
+  </body>
+</html>
